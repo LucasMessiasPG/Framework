@@ -21,7 +21,7 @@
             <td><?php echo $vendedor->endereco ?></td>
             <td><?php echo $vendedor->idade ?></td>
             <td><?php echo $vendedor->data_admissao ?></td>
-            <td><?php echo $vendedor->cpf ?></td>
+            <td><?php echo preg_replace("/^(\d{3})(\d{3})(\d{3})(\d{2})$/", '$1.$2.$3-$4', $vendedor->cpf) ?></td>
             <td>
                 <a href="<?php echo URL ?>index/alterar/<?php echo $vendedor->id_vendedor ?>">
                     <i class="glyphicon glyphicon-edit"></i> Alterar
