@@ -110,7 +110,7 @@ class Vendedor extends Model
     }
 
     public function validaIdade($idade){
-        if(is_numeric($idade) && $idade > 16 && $idade < 120)
+        if(is_numeric($idade) && $idade >= 16 && $idade < 120)
             return true;
         return false;
     }

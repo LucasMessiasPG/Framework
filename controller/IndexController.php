@@ -34,7 +34,7 @@ class IndexController extends Controller
             $vendedor->setCpf($_POST['cpf']);
 
 
-            if(!$this->validarPost($vendedor)){
+            if($this->validarPost()){
                 if($this->vendedor->cadastrar())
                     $this->set_userdata('mensagem', 'Vendedor Cadastrado.');
                 else
@@ -61,11 +61,13 @@ class IndexController extends Controller
             $v->setDataAdmissao($_POST['data_admissao']);
             $v->setCpf($_POST['cpf']);
 
-            if(!$this->validarPost($vendedor)){
+            if($this->validarPost()){
                 if($this->vendedor->alterar($id_vendedor))
                     $this->set_userdata('mensagem', 'Vendedor Alterado.');
                 else
                     $this->set_userdata('error', 'Erro ao alterar Vendedor.');
+            }else{
+                echo 1;
             }
         }
 
@@ -110,23 +112,23 @@ class IndexController extends Controller
             }
             elseif(!$this->vendedor->validaSTR($_POST['sobrenome'])){
                 $this->set_userdata('error', 'Sobrenome  invalido.');
-                    return false;
+                return false;
             }
             elseif(!$this->vendedor->validaSTR($_POST['endereco'])){
                 $this->set_userdata('error', 'Endereço  invalido.');
-                    return false;
+                return false;
             }
-            elseif (!$vendedor->validaIdade($_POST['idade'])){
+            elseif (!$this->vendedor->validaIdade($_POST['idade'])){
                 $this->set_userdata('error', 'Idade deve ser maior que 16 e menor que 120.');
-                    return false;
+                return false;
             }
             elseif(!$this->vendedor->validaData($_POST['data_admissao'])){
                 $this->set_userdata('error', 'Data  invalido.');
-                    return false;
+                return false;
             }
             elseif(!$this->vendedor->validaCPF($_POST['cpf'])){
                 $this->set_userdata('error', 'CPF  invalido.');
-                    return false;
+                return false;
             }
 
     }
