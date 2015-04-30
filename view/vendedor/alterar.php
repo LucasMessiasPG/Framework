@@ -26,7 +26,7 @@
         <input type="text" name="cpf" class="form-control"  value="<?php echo $vendedor->cpf ?>"/>
     </p>
     <p class="text-center">
-        <input type="submit" class="btn btn-success" />
+        <input type="submit" class="btn btn-success" value="Alterar" />
         <a href="<?php echo URL ?>index/listar" class="btn btn-default">Voltar</a>
     </p>
 </form>
