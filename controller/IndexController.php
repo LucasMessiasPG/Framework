@@ -34,26 +34,18 @@ class IndexController extends Controller
             $vendedor->setCpf($_POST['cpf']);
 
 
-            if(!$this->vendedor->validaSTR($_POST['nome']))
-                $this->set_userdata('error', 'Erro ao cadastrar Nome Vendedor.');
-            elseif(!$this->vendedor->validaSTR($_POST['sobrenome']))
-                $this->set_userdata('error', 'Erro ao cadastrar Sobrenome Vendedor.');
-            elseif(!$this->vendedor->validaSTR($_POST['endereco']))
-                $this->set_userdata('error', 'Erro ao cadastrar Endereço Vendedor.');
-            elseif (!$vendedor->validaIdade($_POST['idade']))
-                $this->set_userdata('error', 'Erro ao cadastrar Idade Vendedor.');
-            elseif(!$this->vendedor->validaData($_POST['data_admissao']))
-                $this->set_userdata('error', 'Erro ao cadastrar Data de admissao Vendedor.');
-            elseif(!$this->vendedor->validaCPF($_POST['cpf']))
-                $this->set_userdata('error', 'Erro ao cadastrar CPF Vendedor.');
-            elseif($this->vendedor->cadastrar())
-                $this->set_userdata('mensagem', 'Vendedor Cadastrado.');
-            else
-                $this->set_userdata('error', 'Erro ao cadastrar Vendedor.');
+            if(!$this->validarPost($vendedor)){
+                if($this->vendedor->cadastrar())
+                    $this->set_userdata('mensagem', 'Vendedor Cadastrado.');
+                else
+                    $this->set_userdata('error', 'Erro ao cadastrar Vendedor.');
+            }
 
         }
         $this->view->render('vendedor/cadastrar');
     }
+
+
 
     public function alterarAction($id_vendedor = ''){
 
@@ -69,10 +61,12 @@ class IndexController extends Controller
             $v->setDataAdmissao($_POST['data_admissao']);
             $v->setCpf($_POST['cpf']);
 
-            if($this->vendedor->alterar($id_vendedor))
-                $this->set_userdata('mensagem', 'Vendedor Alterado.');
-            else
-                $this->set_userdata('error', 'Erro ao alterar Vendedor.');
+            if(!$this->validarPost($vendedor)){
+                if($this->vendedor->alterar($id_vendedor))
+                    $this->set_userdata('mensagem', 'Vendedor Alterado.');
+                else
+                    $this->set_userdata('error', 'Erro ao alterar Vendedor.');
+            }
         }
 
         $view = array(
@@ -106,5 +100,34 @@ class IndexController extends Controller
             $this->redirect('');
 
         return $vendedor;
+    }
+
+    protected function validarPost(){
+
+            if(!$this->vendedor->validaSTR($_POST['nome'])){
+                $this->set_userdata('error', 'Nome invalido.');
+                return false;
+            }
+            elseif(!$this->vendedor->validaSTR($_POST['sobrenome'])){
+                $this->set_userdata('error', 'Sobrenome  invalido.');
+                    return false;
+            }
+            elseif(!$this->vendedor->validaSTR($_POST['endereco'])){
+                $this->set_userdata('error', 'Endereço  invalido.');
+                    return false;
+            }
+            elseif (!$vendedor->validaIdade($_POST['idade'])){
+                $this->set_userdata('error', 'Idade deve ser maior que 16 e menor que 120.');
+                    return false;
+            }
+            elseif(!$this->vendedor->validaData($_POST['data_admissao'])){
+                $this->set_userdata('error', 'Data  invalido.');
+                    return false;
+            }
+            elseif(!$this->vendedor->validaCPF($_POST['cpf'])){
+                $this->set_userdata('error', 'CPF  invalido.');
+                    return false;
+            }
+
     }
 }
