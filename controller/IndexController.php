@@ -33,7 +33,20 @@ class IndexController extends Controller
             $vendedor->setDataAdmissao($_POST['data_admissao']);
             $vendedor->setCpf($_POST['cpf']);
 
-            if($this->vendedor->cadastrar())
+
+            if(!$this->vendedor->validaSTR($_POST['nome']))
+                $this->set_userdata('error', 'Erro ao cadastrar Nome Vendedor.');
+            elseif(!$this->vendedor->validaSTR($_POST['sobrenome']))
+                $this->set_userdata('error', 'Erro ao cadastrar Sobrenome Vendedor.');
+            elseif(!$this->vendedor->validaSTR($_POST['endereco']))
+                $this->set_userdata('error', 'Erro ao cadastrar Endereço Vendedor.');
+            elseif (!$vendedor->validaIdade($_POST['idade']))
+                $this->set_userdata('error', 'Erro ao cadastrar Idade Vendedor.');
+            elseif(!$this->vendedor->validaData($_POST['data_admissao']))
+                $this->set_userdata('error', 'Erro ao cadastrar Data de admissao Vendedor.');
+            elseif(!$this->vendedor->validaCPF($_POST['cpf']))
+                $this->set_userdata('error', 'Erro ao cadastrar CPF Vendedor.');
+            elseif($this->vendedor->cadastrar())
                 $this->set_userdata('mensagem', 'Vendedor Cadastrado.');
             else
                 $this->set_userdata('error', 'Erro ao cadastrar Vendedor.');

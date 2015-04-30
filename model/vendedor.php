@@ -108,4 +108,28 @@ class Vendedor extends Model
             return $this->getRow();
         return false;
     }
+
+    public function validaIdade($idade){
+        if(is_numeric($idade) && $idade > 0 && $idade < 120)
+            return true;
+        return false;
+    }
+
+    public function validaCPF($cpf){
+        if(strlen(preg_replace('/[^0-9]/','',$cpf)) == 11)
+            return true;
+        return false;
+    }
+
+    public function validaSTR($str){
+        if(is_string($str) && $str != '' && strlen($str) > 2)
+            return true;
+        return false;
+    }
+
+    public function validadata($data){
+        if(is_string($data) && $data != '' && strlen(str_replace('/','',$data)) >= 6)
+            return true;
+        return false;
+    }
 }
