@@ -9,7 +9,7 @@ define('VIEW', 'view');
 //CONSTANTE DE VIEW PARA O SISTEMA
 define('MODEL', 'model');
 
-define('URL', 'http://localhost/framework/?url=');
+define('URL', 'http://localhost/framework/');
 define('PUBLICO', 'http://localhost/framework/public/');
 
 //DEFINICOES PARA O BANCO DE DADOS
