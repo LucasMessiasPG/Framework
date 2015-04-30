@@ -12,13 +12,18 @@ class IndexController extends Controller
 
     }
 
-    public function indexAction(){
+    public function listarAction()
+    {
         $view = array(
            "vendedores" => $this->vendedor->listar('vendedor')
         );
 
         $this->view->render('vendedor/listar', $view);
+    }
 
+    public function indexAction(){
+
+        $this->view->render('vendedor/index');
     }
 
     public function cadastrarAction(){

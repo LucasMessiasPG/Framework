@@ -39,5 +39,6 @@
 <?php endif; ?>
 <div class="text-center">
     <a href="<?php echo URL?>index/cadastrar" class="btn btn-default">Cadastrar</a>
+    <a href="<?php echo URL?>" class="btn btn-default">Voltar</a>
 </div>
 <?php $this->render('footer') ?>
