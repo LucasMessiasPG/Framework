@@ -54,7 +54,6 @@ class IndexController extends Controller
 
     public function alterarAction($id_vendedor = ''){
 
-        $vendedor = $this->validacao($id_vendedor);
 
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $v = $this->vendedor;
@@ -71,10 +70,10 @@ class IndexController extends Controller
                     $this->set_userdata('mensagem', 'Vendedor Alterado.');
                 else
                     $this->set_userdata('error', 'Erro ao alterar Vendedor.');
-            }else{
-                echo 1;
             }
         }
+
+        $vendedor = $this->validacao($id_vendedor);
 
         $view = array(
            "vendedor" => $vendedor
@@ -135,6 +134,6 @@ class IndexController extends Controller
                 $this->set_userdata('error', 'CPF  invalido.');
                 return false;
             }
-
+        return true;
     }
 }
