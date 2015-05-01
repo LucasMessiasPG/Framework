@@ -123,7 +123,7 @@ class IndexController extends Controller
                 return false;
             }
             elseif (!$this->vendedor->validaIdade($_POST['idade'])){
-                $this->set_userdata('error', 'Idade deve ser maior que 16 e menor que 120.');
+                $this->set_userdata('error', 'Idade deve ser maior ou igual que 16 e menor que 120.');
                 return false;
             }
             elseif(!$this->vendedor->validaData($_POST['data_admissao'])){
