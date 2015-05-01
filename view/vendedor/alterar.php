@@ -1,33 +1,52 @@
 <?php $this->render('header') ?>
 <form action="" method="post">
     <h3>Alterar Vendedor</h3>
-    <p>
+    <div>
         <label for="nome">Nome</label>
-        <input type="text" name="nome" class="form-control"  value="<?php echo $vendedor->nome ?>"/>
-    </p>
-    <p>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input type="text" name="nome" class="form-control"  value="<?php echo $vendedor->nome ?>"/>
+        </div>
+    </div>
+    <div>
         <label for="nome">Sobrenome</label>
-        <input type="text" name="sobrenome" class="form-control"  value="<?php echo $vendedor->sobrenome ?>"/>
-    </p>
-    <p>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input type="text" name="sobrenome" class="form-control"  value="<?php echo $vendedor->sobrenome ?>"/>
+        </div>
+    </div>
+    <div>
         <label for="nome">Endereco</label>
-        <input type="text" name="endereco" class="form-control"  value="<?php echo $vendedor->endereco ?>"/>
-    </p>
-    <p>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-road"></i></span>
+            <input type="text" name="endereco" class="form-control"  value="<?php echo $vendedor->endereco ?>"/>
+        </div>
+    </div>
+    <div>
         <label for="nome">Idade</label>
-        <input type="text" name="idade" class="form-control"  value="<?php echo $vendedor->idade ?>"/>
-    </p>
-    <p>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-heart"></i></span>
+            <input type="text" name="idade" class="form-control"  value="<?php echo $vendedor->idade ?>"/>
+        </div>
+    </div>
+    <div>
         <label for="nome">Data de Admissão</label>
-        <input type="text" name="data_admissao" class="form-control"  value="<?php echo $vendedor->data_admissao ?>"/>
-    </p>
-    <p>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+            <input type="text" name="data_admissao" class="form-control"  value="<?php echo $vendedor->data_admissao ?>"/>
+        </div>
+    </div>
+    <div>
         <label for="nome">CPF</label>
-        <input type="text" name="cpf" class="form-control"  value="<?php echo $vendedor->cpf ?>"/>
-    </p>
-    <p class="text-center">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-info-sign"></i></span>
+            <input type="text" name="cpf" class="form-control"  value="<?php echo $vendedor->cpf ?>"/>
+        </div>
+    </div>
+    <br />
+    <div class="text-center">
         <input type="submit" class="btn btn-success" value="Alterar" />
         <a href="<?php echo URL ?>index/listar" class="btn btn-default">Voltar</a>
-    </p>
+    </div>
 </form>
 <?php $this->render('footer') ?>

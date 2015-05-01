@@ -1,33 +1,52 @@
 <?php $this->render('header') ?>
 <form action="" method="post">
-    <h3>Cadastro de Vendedor</h3>
-    <p>
+    <h3>Cadastrar Vendedor</h3>
+    <div>
         <label for="nome">Nome</label>
-        <input type="text" name="nome" class="form-control" />
-    </p>
-    <p>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input type="text" name="nome" class="form-control" />
+        </div>
+    </div>
+    <div>
         <label for="nome">Sobrenome</label>
-        <input type="text" name="sobrenome" class="form-control" />
-    </p>
-    <p>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input type="text" name="sobrenome" class="form-control" />
+        </div>
+    </div>
+    <div>
         <label for="nome">Endereco</label>
-        <input type="text" name="endereco" class="form-control" />
-    </p>
-    <p>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-road"></i></span>
+            <input type="text" name="endereco" class="form-control" />
+        </div>
+    </div>
+    <div>
         <label for="nome">Idade</label>
-        <input type="text" name="idade" class="form-control" />
-    </p>
-    <p>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-heart"></i></span>
+            <input type="text" name="idade" class="form-control" />
+        </div>
+    </div>
+    <div>
         <label for="nome">Data de Admissão</label>
-        <input type="text" name="data_admissao" class="form-control" />
-    </p>
-    <p>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+            <input type="text" name="data_admissao" class="form-control"  />
+        </div>
+    </div>
+    <div>
         <label for="nome">CPF</label>
-        <input type="text" name="cpf" class="form-control" />
-    </p>
-    <p class="text-center">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-info-sign"></i></span>
+            <input type="text" name="cpf" class="form-control"  />
+        </div>
+    </div>
+    <br />
+    <div class="text-center">
         <input type="submit" class="btn btn-success" value="Cadastrar" />
         <a href="<?php echo URL ?>index/listar" class="btn btn-default">Voltar</a>
-    </p>
+    </div>
 </form>
 <?php $this->render('footer') ?>
